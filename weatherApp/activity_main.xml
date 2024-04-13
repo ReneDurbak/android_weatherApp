@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Layout for search EditText and button at the top -->
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp">
+
+        <EditText
+            android:id="@+id/cityEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter City"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Weather"
+            android:onClick="getWeather"
+            android:layout_below="@id/cityEditText"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <!-- Layout for weather result TextView in the middle -->
+    <RelativeLayout
+        android:id="@+id/middleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/weatherTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
