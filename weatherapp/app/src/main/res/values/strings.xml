@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">weather app</string>
+    <string name="et_enterCity">Enter a city...</string>
+    <string name="image_desc">magnifier</string>
+    <string name="tv_desc">Look for a city...</string>
+    <string name="image_iconDesc">desc_icon</string>
+    <string name="image_windSpeedDesc">img_windSpeed</string>
+    <string name="image_humidityDesc">img_humidityDesc</string>
 </resources>

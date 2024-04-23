@@ -1,5 +1,6 @@
 package com.example.weatherapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,7 +19,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 
 public class MainActivity extends AppCompatActivity {
-
     private EditText cityEditText;
 
     private TextView tempTextView;
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         cityEditText = findViewById(R.id.cityEditText);
         tempTextView = findViewById(R.id.tempTextView);
         cityTextView= findViewById(R.id.cityTextView);
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         String city = cityEditText.getText().toString().trim();
         if (!city.isEmpty()) {
             String url = BASE_URL + "?q=" + city +  "&units=metric" + "&appid=" + API_KEY;
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+            @SuppressLint("SetTextI18n") JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                     (Request.Method.GET, url, null, response -> {
                         try {
                             int temperature = response.getJSONObject("main").getInt("temp");
@@ -102,15 +103,13 @@ public class MainActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                    }, error -> {
-                        Toast.makeText(MainActivity.this, "Error: Mesto nebolo nájdené", Toast.LENGTH_SHORT).show();
-                    });
+                    }, error -> Toast.makeText(MainActivity.this, "Error: Miesto nebolo nájdené", Toast.LENGTH_SHORT).show());
 
             // pridame request do RequestQueue
             RequestQueue queue = Volley.newRequestQueue(this);
             queue.add(jsonObjectRequest);
         }else{
-            Toast.makeText(MainActivity.this, "Error: Musíš zadať mesto!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Error: Musíš zadať platné miesto!", Toast.LENGTH_SHORT).show();
         }
     }
 
